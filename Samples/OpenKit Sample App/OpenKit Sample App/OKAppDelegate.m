@@ -21,8 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    NSString *myAppKey = @"BspfxiqMuYxNEotLeGLm";
-    NSString *mySecretKey = @"2sHQOuqgwzocUdiTsTWzyQlOy1paswYLGjrdRWWf";
+    NSString *myAppKey = @"2DP622Qd49i7dhE186Xh";
+    NSString *mySecretKey = @"k2w5zMHDs5WjmcUMK9aHBBEXtVXVG1a5Cq1lDgb0";
     
     [OKManager configureWithAppKey:myAppKey secretKey:mySecretKey];
     
