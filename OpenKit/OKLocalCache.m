@@ -19,8 +19,7 @@ dispatch_queue_t __OKCacheQueue = nil;
 
 
 @implementation OKLocalCache
-
-
+@synthesize lastInsertRowID;
 
 #pragma mark - API
 - (id)initWithCacheName:(NSString *)name createSql:(NSString *)sql version:(NSString *)version
@@ -66,11 +65,6 @@ dispatch_queue_t __OKCacheQueue = nil;
     va_end(args);
 
     return success;
-}
-
--(int)lastInsertRowID
-{
-    return lastInsertRowID;
 }
 
 -(NSString*)lastErrorMessage
