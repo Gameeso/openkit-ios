@@ -1,4 +1,15 @@
 language: objective-c
-
 before_script: travis/before_script.sh
 script: travis/script.sh
+branches:
+  only:
+  - development
+  - master
+
+deploy:
+  provider: releases
+  api_key:
+    secure: TJ9rN8vcLB1NlAyJBbX4FCLnQHCp2T8c0dWU9RmcEo0vO7ATmC5ayMtqrVDpbDAmJGFxpQVdV3dra2KAvTXxWrs8fb/6/H8TjiCrCZZApgX4+pGYNdqD6B+e8bT7SS9BRFNvFm67ZIFh0hYvlNQSW2lzUNl4mODtA5XMhTf/6ug=
+  file: Gameeso-iOS-SDK.zip
+  on:
+    repo: Gameeso/openkit-ios
