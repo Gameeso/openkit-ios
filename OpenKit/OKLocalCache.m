@@ -71,6 +71,7 @@ dispatch_queue_t __OKCacheQueue = nil;
         if([db lastInsertRowId] != 0) {
             lastInsertRowID = [db lastInsertRowId];
         }
+        [db close];
     }
     va_end(args);
 
