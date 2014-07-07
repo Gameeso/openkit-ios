@@ -1,5 +1,6 @@
 # OpenKit specific
 # Leaving the final build dir of the static lib out:
+Gameeso-iOS-SDK.zip
 OpenKitSDK/
 # Xcode
 .DS_Store
