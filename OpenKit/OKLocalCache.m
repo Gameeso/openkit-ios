@@ -30,7 +30,6 @@ dispatch_queue_t __OKCacheQueue = nil;
     return self;
 }
 
-
 -(void)access:(void(^)(FMDatabase *))block
 {
     [self sanity];
@@ -43,13 +42,26 @@ dispatch_queue_t __OKCacheQueue = nil;
     }
 }
 
+- (FMDatabase *)access
+{
+    [self sanity];
+    FMDatabase *db = [self database];
+    if ([db open]){
+        return db;
+    } else {
+        return nil;
+    }
+}
+
 - (BOOL)update:(NSString *)sql, ...
 {
     va_list args;
     va_start(args, sql);
 
-    __block BOOL success;
-    [self access:^(FMDatabase *db) {
+    FMDatabase *db = self.access;
+    BOOL success = NO;
+    
+    if(db) {
         OKLogInfo(@"Performing cache update: %@", sql);
         success = [db executeUpdate:sql error:nil withArgumentsInArray:nil orDictionary:nil orVAList:args];
         OKLogInfo(@"...%@", (success ? @"success" : @"FAIL"));
@@ -59,7 +71,7 @@ dispatch_queue_t __OKCacheQueue = nil;
         if([db lastInsertRowId] != 0) {
             lastInsertRowID = [db lastInsertRowId];
         }
-    }];
+    }
     va_end(args);
 
     return success;

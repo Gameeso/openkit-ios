@@ -40,6 +40,7 @@ extern dispatch_queue_t __OKCacheQueue;
 #pragma mark - API
 - (id)initWithCacheName:(NSString *)name createSql:(NSString *)sql version:(NSString *)version;
 - (void)access:(void(^)(FMDatabase *))block;
+- (FMDatabase *)access;
 
 // You can use this for insert/update/delete without access block.  Selects should
 // go through access block so FMResultSet access is contained.
