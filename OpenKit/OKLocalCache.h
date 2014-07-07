@@ -25,9 +25,9 @@ extern dispatch_queue_t __OKCacheQueue;
 
 
 #import <Foundation/Foundation.h>
-#import "FMResultSet.h"
-#import "FMDatabase.h"
+#import <sqlite3.h>
 
+@class FMDatabase;
 @interface OKLocalCache : NSObject
 {
     NSString *_createSql;

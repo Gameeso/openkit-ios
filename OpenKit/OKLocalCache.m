@@ -10,6 +10,8 @@
 #import "OKMacros.h"
 #import "OKFileUtil.h"
 
+#import "FMResultSet.h"
+#import "FMDatabase.h"
 
 #if !OK_CACHE_USES_MAIN
 dispatch_queue_t __OKCacheQueue = nil;
