@@ -24,8 +24,9 @@ extern dispatch_queue_t __OKCacheQueue;
 
 
 
-@class FMDatabase;
 #import <Foundation/Foundation.h>
+#import "FMResultSet.h"
+#import "FMDatabase.h"
 
 @interface OKLocalCache : NSObject
 {

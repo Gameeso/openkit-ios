@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 OpenKit. All rights reserved.
 //
 
-#import "FMResultSet.h"
-#import "FMDatabase.h"
 #import "OKLocalCache.h"
 #import "OKMacros.h"
 #import "OKFileUtil.h"
