@@ -1,5 +1,7 @@
 Quick Start
 ------------
+[![Build Status](https://travis-ci.org/Gameeso/openkit-ios.svg?branch=development)](https://travis-ci.org/Gameeso/openkit-ios)
+
 Getting started instructions for OpenKit's iOS client: 
 
 1. Get the repo: 
