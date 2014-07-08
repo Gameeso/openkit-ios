@@ -4,7 +4,7 @@ script: travis/script.sh
 deploy:
   provider: releases
   api_key:
-    secure: O/xw4FPp65JiW82F53yOzOLCHKrsJtc5HTEc72yxt3tI8+58h6fHuIvkv6UIP2Q8msi4yDBm9vqapfN/XBeQIT1nefweE+0v4DOQ72K4fBc/4VJhER6jZZMc2J7ZjQQnIHVQj3OLZRaM0pnb+YyHO3CyjxsyCNMhYmcIbfJqDTQ=
+    secure: "M1N6Oj9SaLDH0oxWncsJ9ePX3B2SdVAsJt9FGEJVwEUcOg7spGl371VISKwcbV0uy+DWGyldum1kldXmnf/fT20IwJ3b1hnGAzxuA2IhgiuP00nmK4XzlnmYpW72+Kvq7OPg2XHtFie/ZswXAmPD0bv8emSKf2DGFBxPEP7F+7k="
   file: Gameeso-iOS-SDK.zip
   skip_cleanup: true
   on:
