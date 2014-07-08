@@ -1,5 +1,5 @@
 //
-//  OKAppDelegate.m
+//  OKAppDelegate.m/Users/Pet0r/Documents/Projects/Gameeso/openkit-ios/Samples/OpenKit Sample App/OpenKit Sample App.xcodeproj
 //  SampleApp
 //
 //  Created by Suneet Shah on 12/26/12.
