@@ -144,15 +144,24 @@ static NSString *DEFAULT_LEADERBOARD_LIST_TAG = @"v1";
 // Takes a page number of scores and converts to range for GameCenter
 -(void)getGlobalScoresWithPageNum:(int)pageNum withCompletionHandler:(void (^)(NSArray *scores, NSError *error))completionHandler
 {
+    __block int count = 0;
+    NSMutableArray *scoresCombined = [NSMutableArray array];
+    void(^threadSafeCompletionHandler)(NSArray*, NSError*) = ^(NSArray *scores, NSError *error) {
+        count--;
+        [scoresCombined addObjectsFromArray:scores];
+        if (count == 0) {
+            completionHandler(scoresCombined, error);
+        }
+    };
     if([self showGlobalScoresFromGameCenter]) {
-        
+        count++;
         NSRange scoreRange = NSMakeRange((pageNum-1)*NUM_SCORES_PER_PAGE+1, NUM_SCORES_PER_PAGE);
         
-        [self getScoresFromGameCenterWithRange:scoreRange withPlayerScope:GKLeaderboardPlayerScopeGlobal withCompletionHandler:completionHandler];
+        [self getScoresFromGameCenterWithRange:scoreRange withPlayerScope:GKLeaderboardPlayerScopeGlobal withCompletionHandler:threadSafeCompletionHandler];
     }
-    else {
-       [self getScoresForTimeRange:OKLeaderboardTimeRangeAllTime forPageNumber:pageNum WithCompletionhandler:completionHandler];
-    }
+    
+    count++;
+    [self getScoresForTimeRange:OKLeaderboardTimeRangeAllTime forPageNumber:pageNum WithCompletionhandler:threadSafeCompletionHandler];
 }
 
 //Get friends scores from gamecenter, retrieves up to 100 scores (hardcoded)
